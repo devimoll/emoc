@@ -1,0 +1,2 @@
+# emoc
+comic viewer qt

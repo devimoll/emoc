@@ -21,6 +21,7 @@ public:
     void set_migitoji();
     void set_hidaritoji();
     bool get_is_hidaritoji();
+    bool get_is_mihiraki();
     bool toggle_mihiraki();
     bool is_image_empty(int);
     void switch_interpolation();

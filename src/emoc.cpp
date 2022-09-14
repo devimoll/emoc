@@ -489,6 +489,7 @@ void emoc::quit()
     }
 }
 
+// 左のページ
 void emoc::goto_left()
 {
     if (v->get_is_hidaritoji()) {
@@ -499,6 +500,7 @@ void emoc::goto_left()
     }
 }
 
+// 右のページ
 void emoc::goto_right()
 {
     if (v->get_is_hidaritoji()) {
@@ -509,15 +511,27 @@ void emoc::goto_right()
     }
 }
 
+// 次のページ
 void emoc::goto_next()
 {
-    this->set_curr_page_num(this->get_curr_page_num() + 1);
+    if (v->get_is_mihiraki()) {
+        this->set_curr_page_num(this->get_curr_page_num() + 2);
+    }
+    else {
+        this->set_curr_page_num(this->get_curr_page_num() + 1);
+    }
     s->set_curr_page_num(this->get_curr_page_num());
 }
 
+// 前のページ
 void emoc::goto_prev()
 {
-    this->set_curr_page_num(this->get_curr_page_num() - 1);
+    if (v->get_is_mihiraki()) {
+        this->set_curr_page_num(this->get_curr_page_num() - 2);
+    }
+    else {
+        this->set_curr_page_num(this->get_curr_page_num() - 1);
+    }
     s->set_curr_page_num(this->get_curr_page_num());
 }
 

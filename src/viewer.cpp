@@ -24,7 +24,7 @@ void viewer::set_image(int n, QString ap) {
 
 void viewer::set_curr_page_num(int n)
 {
-    is_mihiraki = false;
+    //is_mihiraki = false;
     if (is_image_empty(n)) {
         qDebug() << "IMAGE IS EMPTY." << n;
         exit(1);
@@ -46,6 +46,11 @@ void viewer::set_hidaritoji()
 bool viewer::get_is_hidaritoji()
 {
     return this->is_hidaritoji;
+}
+
+bool viewer::get_is_mihiraki()
+{
+    return this->is_mihiraki;
 }
 
 bool viewer::toggle_mihiraki()
@@ -131,6 +136,7 @@ void viewer::draw()
     cv::Mat drawing;
 
     if (is_mihiraki) {
+        // 見開きオンのとき端のページで不具合が起こる
         if (curr_page_num + 1 >= page_count) {
             qDebug() << "This is last page.";
             drawing = images[curr_page_num];

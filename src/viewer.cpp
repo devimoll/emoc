@@ -33,14 +33,9 @@ void viewer::set_curr_page_num(int n)
     draw();
 }
 
-void viewer::set_migitoji()
+void viewer::set_hidaritoji(bool b)
 {
-    is_hidaritoji = false;
-}
-
-void viewer::set_hidaritoji()
-{
-    is_hidaritoji = true;
+    is_hidaritoji = b;
 }
 
 bool viewer::get_is_hidaritoji()

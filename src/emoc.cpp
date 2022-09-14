@@ -189,10 +189,10 @@ void emoc::init(QString input_archive_path)
     // 左綴か
     QFileInfo checker(file_ap);
     if (checker.completeSuffix() == "cbtl") {
-        v->set_hidaritoji();
+        v->set_hidaritoji(true);
     }
     else {
-        v->set_migitoji();
+        v->set_hidaritoji(false);
     }
 
     s = new slider(slider_height, page_count, !v->get_is_hidaritoji());

@@ -18,8 +18,7 @@ public:
     ~viewer();
     void set_image(int, QString);
     void set_curr_page_num(int);
-    void set_migitoji();
-    void set_hidaritoji();
+    void set_hidaritoji(bool);
     bool get_is_hidaritoji();
     bool get_is_mihiraki();
     bool toggle_mihiraki();

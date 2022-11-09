@@ -16,6 +16,7 @@ emoc::emoc(QWidget *parent)
       file_ap{""},
       curr_page_num{0},
       slider_height{20},
+      does_show_ui{false},
       prtsc_out_dir_ap{"~/pictures/emoc/"},
       layout{new QGridLayout()},
       buttons_layout{new QGridLayout()},
@@ -105,6 +106,14 @@ void emoc::keyPressEvent(QKeyEvent *e)
         break;
     case Qt::Key_P:
         prtsc();
+        break;
+    case Qt::Key_U:
+        if (does_show_ui) {
+            hide_ui();
+        }
+        else {
+            show_ui();
+        }
         break;
     case Qt::Key_Q:
         quit();
@@ -208,6 +217,16 @@ void emoc::init(QString input_archive_path)
     quit_btn->setText("quit");
     about_emoc_btn->setText("about emoc");
     mihiraki_btn->setText("toggle mihiraki");
+
+    s->hide();
+    prtsc_btn->hide()        ;
+    interpolation_btn->hide();
+    rotate_left_btn->hide()  ;
+    rotate_normal_btn->hide();
+    fullscreen_btn->hide()   ;
+    quit_btn->hide()         ;
+    about_emoc_btn->hide()   ;
+    mihiraki_btn->hide()     ;
 
     buttons_layout->addWidget(prtsc_btn,         0, 0, 1, 1);
     buttons_layout->addWidget(interpolation_btn, 0, 1, 1, 1);
@@ -466,6 +485,34 @@ void emoc::rotate_left()
 void emoc::rotate_normal()
 {
     qDebug() << "未実装";
+}
+
+void emoc::hide_ui()
+{
+    s->hide();
+    prtsc_btn->hide()        ;
+    interpolation_btn->hide();
+    rotate_left_btn->hide()  ;
+    rotate_normal_btn->hide();
+    fullscreen_btn->hide()   ;
+    quit_btn->hide()         ;
+    about_emoc_btn->hide()   ;
+    mihiraki_btn->hide()     ;
+    does_show_ui= false;
+}
+
+void emoc::show_ui()
+{
+    s->show();
+    prtsc_btn->show()        ;
+    interpolation_btn->show();
+    rotate_left_btn->show()  ;
+    rotate_normal_btn->show();
+    fullscreen_btn->show()   ;
+    quit_btn->show()         ;
+    about_emoc_btn->show()   ;
+    mihiraki_btn->show()     ;
+    does_show_ui = true;
 }
 
 void emoc::show_about_emoc()

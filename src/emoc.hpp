@@ -42,6 +42,8 @@ private:
     void prtsc();
     void rotate_left();
     void rotate_normal();
+    void hide_ui();
+    void show_ui();
     void show_about_emoc();
     void quit();
 
@@ -65,6 +67,7 @@ private:
     int curr_page_num;
     int slider_height;
     bool does_use_buffer;
+    bool does_show_ui;
     QString prtsc_out_dir_ap;
     QGridLayout *layout;
     QGridLayout *buttons_layout;

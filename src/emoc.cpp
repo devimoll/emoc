@@ -248,6 +248,7 @@ void emoc::init(QString input_archive_path)
     configure_connections();
 
     setWindowTitle("emoc " + file_ap);
+    setWindowState(Qt::WindowFullScreen);
 
 // 全部メモリに読み込むモード、全部HDD上に解凍するモード、逐一解凍するモード
     extract_load_page(0);

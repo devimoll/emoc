@@ -5,7 +5,7 @@ viewer::viewer(int page_count)
       curr_page_num{0},
       is_hidaritoji{false},
       is_mihiraki{false},
-      interpolation{cv::INTER_LANCZOS4}
+      interpolation{cv::INTER_AREA}
 {
     images.resize(page_count);
     setAlignment(Qt::AlignHCenter);

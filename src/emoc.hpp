@@ -81,6 +81,7 @@ private:
     touch_button *interpolation_btn;
     touch_button *rotate_left_btn;
     touch_button *rotate_normal_btn;
+    QLabel *img_name;
     touch_button *fullscreen_btn;
     touch_button *quit_btn;
     touch_button *about_emoc_btn;

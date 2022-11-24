@@ -27,6 +27,7 @@ emoc::emoc(QWidget *parent)
       interpolation_btn{new touch_button()},
       rotate_left_btn{new touch_button()},
       rotate_normal_btn{new touch_button()},
+      img_name{new QLabel()},
       fullscreen_btn{new touch_button()},
       quit_btn{new touch_button()},
       about_emoc_btn{new touch_button()},
@@ -58,6 +59,7 @@ emoc::~emoc()
     delete interpolation_btn;
     delete rotate_left_btn;
     delete rotate_normal_btn;
+    delete img_name;
     delete fullscreen_btn;
     delete quit_btn;
     delete about_emoc_btn;
@@ -141,6 +143,8 @@ bool emoc::set_curr_page_num(int ind)
     v->set_curr_page_num(curr_page_num);
     s->set_curr_page_num(curr_page_num);
 
+    img_name->setText(page_names[curr_page_num]);
+
     return 0;
 }
 
@@ -223,6 +227,7 @@ void emoc::init(QString input_archive_path)
     interpolation_btn->hide();
     rotate_left_btn->hide()  ;
     rotate_normal_btn->hide();
+    img_name->hide();
     fullscreen_btn->hide()   ;
     quit_btn->hide()         ;
     about_emoc_btn->hide()   ;
@@ -232,10 +237,11 @@ void emoc::init(QString input_archive_path)
     buttons_layout->addWidget(interpolation_btn, 0, 1, 1, 1);
     buttons_layout->addWidget(rotate_left_btn,   0, 2, 1, 1);
     buttons_layout->addWidget(rotate_normal_btn, 0, 3, 1, 1);
-    buttons_layout->addWidget(fullscreen_btn,    0, 4, 1, 1);
-    buttons_layout->addWidget(quit_btn,          0, 5, 1, 1);
-    buttons_layout->addWidget(about_emoc_btn,    0, 6, 1, 1);
-    buttons_layout->addWidget(mihiraki_btn,      0, 7, 1, 1);
+    buttons_layout->addWidget(img_name, 0, 4, 1, 1);
+    buttons_layout->addWidget(fullscreen_btn,    0, 5, 1, 1);
+    buttons_layout->addWidget(quit_btn,          0, 6, 1, 1);
+    buttons_layout->addWidget(about_emoc_btn,    0, 7, 1, 1);
+    buttons_layout->addWidget(mihiraki_btn,      0, 8, 1, 1);
 
     layout->addWidget(v, 0, 0, 1, 1);
     // Ignoredだと画像のサイズ以下までウィンドウを小さくできる
@@ -267,6 +273,7 @@ void emoc::init(QString input_archive_path)
     v->set_curr_page_num(0);
     s->set_curr_page_num(0);
 
+    img_name->setText(page_names[0]);
 }
 
 QString emoc::open_file_dialog()
@@ -495,6 +502,7 @@ void emoc::hide_ui()
     interpolation_btn->hide();
     rotate_left_btn->hide()  ;
     rotate_normal_btn->hide();
+    img_name->hide();
     fullscreen_btn->hide()   ;
     quit_btn->hide()         ;
     about_emoc_btn->hide()   ;
@@ -509,6 +517,7 @@ void emoc::show_ui()
     interpolation_btn->show();
     rotate_left_btn->show()  ;
     rotate_normal_btn->show();
+    img_name->show();
     fullscreen_btn->show()   ;
     quit_btn->show()         ;
     about_emoc_btn->show()   ;

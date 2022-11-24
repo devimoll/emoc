@@ -2,6 +2,7 @@
 #define VIEWER_HPP
 
 #include <QLabel>
+#include <QMessageBox>
 #include <QMouseEvent>
 #include <QVBoxLayout>
 #include <opencv2/core/core.hpp>

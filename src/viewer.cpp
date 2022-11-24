@@ -141,11 +141,18 @@ void viewer::draw()
                 qDebug() << "NEXT IMAGE IS EMPTY.";
                 exit(1);
             }
-            if (is_hidaritoji) {
-                cv::hconcat(images[curr_page_num], images[curr_page_num + 1], drawing);
+            if (images[curr_page_num].size().height != images[curr_page_num + 1].size().height) {
+                is_mihiraki = false;
+                QMessageBox::warning(this, "hconcat error", "The heights of the two images are not equal.");
+                drawing = images[curr_page_num];
             }
             else {
-                cv::hconcat(images[curr_page_num + 1], images[curr_page_num], drawing);
+                if (is_hidaritoji) {
+                    cv::hconcat(images[curr_page_num], images[curr_page_num + 1], drawing);
+                }
+                else {
+                    cv::hconcat(images[curr_page_num + 1], images[curr_page_num], drawing);
+                }
             }
         }
     }
